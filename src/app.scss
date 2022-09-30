@@ -1,0 +1,201 @@
+$width: 768px;
+
+@mixin mobile {
+  @media (max-width:#{$width}) {
+    @content;
+  }
+}
+
+.container {
+  background-color: #282c34;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .logo {
+      margin-right: 50px;
+      @include mobile {
+        margin-right: 5px;
+      }
+      img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        @include mobile {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+    }
+    .content {
+      h1 {
+        @include mobile {
+          font-size: 30px;
+        }
+        color: white;
+      }
+      h2 {
+        @include mobile {
+          font-size: 22px;
+        }
+        color: #adb0bb;
+      }
+    }
+  }
+  .main {
+    flex: 4;
+    display: flex;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      h2 {
+        color: #8a85ff;
+        font-weight: normal;
+        @include mobile {
+          font-size: 22px;
+        }
+      }
+      .todolist {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        height: 80%;
+        width: 80%;
+        background-color: #1c2025;
+        color: white;
+        padding: 10px;
+        @include mobile {
+          height: 80%;
+          width: 60%;
+        }
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+    .center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      // height: 100%;
+      // background: #000;
+      margin-top: 70px;
+      align-items: center;
+      @include mobile {
+        margin-top: 10px;
+      }
+      h2 {
+        color: white;
+        font-weight: normal;
+        margin-bottom: 10px;
+        @include mobile {
+          font-size: 22px;
+        }
+      }
+      .inputContainer {
+        margin-bottom: 10px;
+        // background: #000;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        @include mobile {
+          margin-top: 0;
+          width: 50%;
+          align-items: center;
+        }
+        input {
+          border: 1px solid #8a85ff;
+          background-color: transparent;
+          width: 100%;
+          border-radius: 10px;
+          padding: 10px;
+          outline: none;
+          color: white;
+        }
+        p {
+          color: #a68e43;
+          margin-top: 10px;
+          height: 30px;
+
+          @include mobile {
+            margin-top: 5px;
+          }
+        }
+      }
+      .buttons {
+        display: flex;
+        flex-direction: column;
+
+        @include mobile {
+          flex-direction: row;
+        }
+        button {
+          background-color: #4caf50;
+          border: none;
+          color: white;
+          padding: 10px 40px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        button:last-child {
+          margin-top: 10px;
+          background-color: transparent;
+          &:hover {
+            background-color: red;
+          }
+          @include mobile {
+            margin-top: 0;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      h2 {
+        color: #8a85ff;
+        font-weight: normal;
+        @include mobile {
+          font-size: 22px;
+        }
+      }
+      .activelist {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+        width: 80%;
+        padding: 10px;
+        background-color: #1c2025;
+        color: white;
+        @include mobile {
+          height: 80%;
+          width: 60%;
+        }
+        span {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
